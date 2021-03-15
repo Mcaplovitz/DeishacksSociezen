@@ -1,6 +1,6 @@
 .box{
-    height: 250px;
-    width: 150px;
+    height: 100%;
+    width: 100%;
     border: 2px solid black;
     float: center;
 }
