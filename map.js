@@ -34,8 +34,12 @@ function initMap() {
     //**does not work yet**
     marker.addListener('dblclick', function() {
         marker.setMap(null);
-        var remover = markers.findIndex(marker)
-        markers.splice(remover)
+        var remover = markers.findIndex(marker);
+        // you should do something like *marker that needs to be removed*.setMap(null)
+        // but i'm also assuming that is what market.addListener is meant to do
+        // i'll keep looking around tho and see
+        remover.setMap(null);
+        markers.splice(remover);
         alert("Working!");
     });
 
