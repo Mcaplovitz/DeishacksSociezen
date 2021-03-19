@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <title>Map</title>
 
     <style type="text/css">
@@ -13,72 +14,84 @@
             width: 100%;
             /* The width is the width of the web page */
         }
+        
+        .controls {
+            margin-top: 10px;
+            border: 1px solid transparent;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            height: 32px;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        #origin-input,
+        #destination-input {
+            background-color: #fff;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 12px;
+            padding: 0 11px 0 13px;
+            text-overflow: ellipsis;
+            width: 200px;
+        }
+        
+        #origin-input:focus,
+        #destination-input:focus {
+            border-color: #4d90fe;
+        }
+        
+        #mode-selector {
+            color: #fff;
+            background-color: #4d90fe;
+            margin-left: 12px;
+            padding: 5px 11px 0px 11px;
+        }
+        
+        #mode-selector label {
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: 300;
+        }
     </style>
-    <script src=map.js>
-        // Initialize and add the map
-        // function initMap() {
-        //     var markers = [];
-        //     var marker = new google.maps.Marker();
-        //     var count = 0;
-        //     // The location of boston
-        //     const boston = {
-        //         lat: 42.36,
-        //         lng: -71.062500
-        //     };
-
-        //     function findMarker() {
-        //         map.addListener('dbclick'.function(event) {
-        //             deleteMarker = event.currentTarget,
-        //                 const labler = deleteMarker.label,
-        //                     for (i = 0, i < markers.length, i++) {
-        //                         if (markers[i].label == labler) {
-        //                             markers[i].setMap(null);
-        //                         }
-        //                     }
-        //         });
-        //     };
-
-
-        //     // The map, centered at boston
-        //     const map = new google.maps.Map(document.getElementById("map"), {
-        //         zoom: 15,
-        //         center: boston,
-        //     });
-
-        //     map.addListener('click', function (event) {
-        //         marker = addMarker(event);
-        //     });
-        //     //  marker.addListener('dblclick', function(event) {
-        //     //  marker.setMap(null);
-        //     //   });
-
-        //     function addMarker(event) {
-        //         var latitude = event.latLng.lat();
-        //         var longitude = event.latLng.lng();
-        //         myLatlng = {
-        //             lat: latitude,
-        //             lng: longitude
-        //         };
-        //         var newMarker = new google.maps.Marker({
-        //             position: myLatlng,
-        //             map: map,
-        //             label: count++,
-        //         });
-        //         //put markers into the array
-        //         markers.push(newMarker);
-        //         //console.log(markers);
-        //     }
-        // }
-    </script>
+    <script src="map.js"></script>
 </head>
 
 <body>
-    <h3>Find people</h3>
+    <h1>Maps</h1>
     <!--The div element for the map -->
-    <div id="map"></div>
+    <div style="display: none">
+        <input id="origin-input" class="controls" type="text" placeholder="Enter an origin location" />
 
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8rpf9NSj_ISAQqsdILkUYxXeXzl_pbxY&callback=initMap&libraries=&v=weekly" async></script>
+        <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location" />
+
+        <div id="mode-selector" class="controls">
+            <input type="radio" name="type" id="changemode-walking" checked="checked" />
+            <label for="changemode-walking">Walking</label>
+
+            <input type="radio" name="type" id="changemode-transit" />
+            <label for="changemode-transit">Transit</label>
+
+            <input type="radio" name="type" id="changemode-biking" />
+            <label for="changemode-biking">Biking</label>
+
+            <input type="radio" name="type" id="changemode-driving" />
+            <label for="changemode-driving">Driving</label>
+
+        </div>
+    </div>
+
+    <div id="map">
+
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8rpf9NSj_ISAQqsdILkUYxXeXzl_pbxY&callback=initMap&libraries=places&v=weekly" async></script>
+    </div>
+    <h3>Map of Shelters in the area</h3>
+    <iframe width="600" height="450" title="Map of shelters" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/search?q=homeless%20shelter&key=AIzaSyA8rpf9NSj_ISAQqsdILkUYxXeXzl_pbxY"></iframe>
+
+
 </body>
 
 </html>
