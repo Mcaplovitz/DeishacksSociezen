@@ -10244,7 +10244,8 @@ a.text-dark:focus {
 }
 
 .masthead .masthead-heading {
-    font-size: 2.75rem;
+    font-family: 'Damion', cursive;
+    font-size: 5rem;
     line-height: 2.75rem;
 }
 
