@@ -1,15 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-<head>
-    <title>News and Updates Page</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <div class="box">
-        <h1 style="text-align:center;">News</h1>
-        <script src="newsfeed.js"></script>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <title>News and Updates</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <!-- navigation bar section -->
+      <a class="navbar-brand" href="#">News and Updates</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <!-- end of navigation bar section -->
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- could connect back to the home page if needed -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+        <!-- end of home button section -->
+      </div>
+    </nav>
+    <!-- header section -->
+    <div class="container my-3">
+      <h3>
+        Top News
+        <span class="badge badge-secondary">by Mouthful</span>
+      </h3>
+      <hr />
+      <div class="accordion" id="newsAccordion"></div>
     </div>
-</body>
+    <!-- end of header section -->
+    <!-- start of news blocks section -->
+    <div>
+      <section class="recentNews">
+        <div class="container">
+          <div class="row">
+              <!-- start of first news section: sports -->
+            <div class="ct-blog col-sm-6 col-md-4">
+              <div class="inner">
+                <div class="fauxcrop">
+                    <!-- link to website would be inserted directly below -->
+                  <a href="#"
+                    ><img
+                      alt="News Entry"
+                      src="Images/Mouthfulsmall.png"
+                  /></a>
+                </div>
+                <h2 class="news-title">Sports News</h2>
+                <div class="ct-blog-content">
+                  <div class="ct-blog-date">
+                    <span>March</span><strong> 1</strong>
+                  </div>
+                  <h3 class="ct-blog-header">
+                    WebCorpCo Will Be Visiting a Number of Upcoming Conferences
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <!-- end of first news section: sports -->
+            <!-- start of second news section: pop culture -->
+            <div class="ct-blog col-sm-6 col-md-4">
+              <div class="inner">
+                <div class="fauxcrop">
+                     <!-- link to website would be inserted directly below -->
+                  <a href="#"
+                    ><img
+                      alt="News Entry"
+                      src="Images/Mouthfulsmall.png"
+                  /></a>
+                </div>
+                <h2 class="news-title">Pop Culture News</h2>
+                <div class="ct-blog-content">
+                  <div class="ct-blog-date">
+                    <span>February</span><strong> 27</strong>
+                  </div>
+                  <h3 class="ct-blog-header">
+                    WebCorpCo Has Been Named to Inc. 5000
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <!-- end of second news section: pop culture -->
+            <!-- start of third news section: important news -->
+            <div class="ct-blog col-sm-6 col-md-4">
+              <div class="inner">
+                <div class="fauxcrop">
+                     <!-- link to website would be inserted directly below -->
+                  <a href="#"
+                    ><img
+                      alt="News Entry"
+                      src="Images/Mouthfulsmall.png"
+                  /></a>
+                </div>
+                <h2 class="news-title">Important News</h2>
+                <div class="ct-blog-content">
+                  <div class="ct-blog-date">
+                    <span>February</span><strong> 25</strong>
+                  </div>
+                  <h3 class="ct-blog-header">
+                    7 Crtical Factors when Choosing a CMS
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <!-- end of third news section: important news -->
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- end of news blocks section -->
 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="inddel.js"></script> -->
+  </body>
 </html>
