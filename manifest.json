@@ -1,7 +1,16 @@
 {
     "name": "Mouthful",
     "short_name": "Mouthful",
+    "start url": "index.html",
+    "background color": "#208DD6",
+    "display": "fullscreen",
     "description": "The social media for getting involved!",
     "orientation": "natural",
-    "lang": "English"
+    "lang": "English",
+    "icons": [
+        {
+          "src": "images/Mouthfulsmall.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }]
 }
