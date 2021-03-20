@@ -12,6 +12,12 @@
         {
           "src": "images/Mouthfulsmall.png",
           "type": "image/png",
+          "sizes": "512x512"
+        },
+        {
+          "src": "images/Mouthfulsmallresize.png",
+          "type": "image/png",
           "sizes": "192x192"
-        }]
+        }
+      ]
 }
