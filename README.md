@@ -2,4 +2,4 @@
  The social media for getting involved
  
 Here is the website working:
-https://mcaplovitz.github.io/Mouthful-Deishacks/
+https://mouthful-deishacks.github.io/Mouthful/
