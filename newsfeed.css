@@ -35,6 +35,8 @@
 }
 .ct-blog .fauxcrop img {
     width: 100%;
+    float:left;
+    height:400px;
 }
 .ct-blog-content {
     display: table;
@@ -68,6 +70,7 @@
     padding: 0 20px;
     vertical-align: top;
 }
+
 /* .btn-news {
     color: #333;
     font-size: 14px;
