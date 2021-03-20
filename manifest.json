@@ -7,7 +7,7 @@
     "description": "The social media for getting involved!",
     "orientation": "natural",
     "lang": "English",
-    "prefer_related_applications": "true",
+    "prefer_related_applications": "false",
     "icons": [
         {
           "src": "images/Mouthfulsmall.png",
