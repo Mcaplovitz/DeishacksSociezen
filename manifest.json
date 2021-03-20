@@ -15,7 +15,7 @@
       }
     ],
   "short_name": "Mouthful",
-  "start url": "index.html",
+  "start url": "/index.html",
   "background color": "#208DD6",
   "display": "fullscreen",
   "description": "The social media for getting involved!",
