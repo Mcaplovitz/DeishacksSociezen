@@ -7,7 +7,7 @@
             "sizes": "192x192"
         },
         {
-            "src": "/images/Mouthfulsmall.png",
+            "src": "images/Mouthfulsmall.png",
             "type": "image/png",
             "sizes": "512x512"
         }
