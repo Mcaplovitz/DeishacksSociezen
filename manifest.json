@@ -17,7 +17,7 @@
             "src": "images/smallpieceofshit.png",
             "type": "image/png",
             "sizes": "144x144",
-            "purpose": "maskable"
+            "purpose": "any"
         }
     ],
     "start_url": ".",
