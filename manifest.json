@@ -12,6 +12,12 @@
             "type": "image/png",
             "sizes": "512x512",
             "purpose": "maskable"
+        },
+        {
+            "src": "images/Mouthfulsmallerresize.png",
+            "type": "image/png",
+            "sizes": "144x144",
+            "purpose": "maskable"
         }
     ],
     "start_url": ".",
