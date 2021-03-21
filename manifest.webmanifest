@@ -1,0 +1,22 @@
+{
+    "short_name": "Mouthful",
+    "name": "Mouthful",
+    "icons": [{
+            "src": "images/Mouthfulsmallresize.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/images/Mouthfulsmall.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/index.html",
+    "background_color": "#208DD6",
+    "display": "fullscreen",
+    "scope": "/",
+    "theme_color": "#208DD6",
+    "description": "Social Media For Helping Those In Need",
+    "orientation": "natural"
+}
