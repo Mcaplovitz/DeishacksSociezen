@@ -25,5 +25,10 @@
     "display": "fullscreen",
     "theme_color": "#208DD6",
     "description": "Social Media For Helping Those In Need",
-    "orientation": "natural"
+    "orientation": "natural",
+    "screenshots": [{
+        "src": "images/smallpieceofshit.png",
+        "type": "image/png",
+        "sizes": "144x144"
+    }]
 }
