@@ -15,7 +15,7 @@
     "start_url": "index.html",
     "background_color": "#208DD6",
     "display": "fullscreen",
-    "scope": "/",
+    "scope": "/Mouthful/",
     "theme_color": "#208DD6",
     "description": "Social Media For Helping Those In Need",
     "orientation": "natural"
