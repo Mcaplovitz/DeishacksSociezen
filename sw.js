@@ -1,3 +1,10 @@
+STATIC_FILES = [
+  '/Mouthful/index.html',
+  '/Mouthful/donations.html',
+  '/Mouthful/map.html',
+  '/Mouthful/newsfeed.html'
+]
+
 self.addEventListener('install', event => {
   console.log('Service Worker install', event);
 
