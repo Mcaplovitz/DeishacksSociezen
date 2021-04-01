@@ -25,51 +25,21 @@ self.addEventListener('fetch', function (e) {
   )
 })
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil((async () => {
-    const cacheNames = await caches.keys();
-
-    await Promise.all(cacheNames.map(async (cacheName) => {
-      if (self.cacheName !== cacheName) {
-        await caches.delete(cacheName);
-      }
-    }));
+self.addEventListener('activate', (e) => {
+  e.waitUntil((async () => {
+    const keyList = await caches.keys();
+    await Promise.all(keyList.map((key) => {
+      if (key === cacheName) { return; }
+      await caches.delete(key);
+    }))
   })());
 });
 
-var networkDataReceived = false;
-
-startSpinner();
-
-// fetch fresh data
-var networkUpdate = fetch('/data.json').then(function(response) {
-  return response.json();
-}).then(function(data) {
-  networkDataReceived = true;
-  updatePage(data);
+self.addEventListener('install', (e) => {
+  console.log('[Service Worker] Install');
+  e.waitUntil((async () => {
+    const cache = await caches.open(cacheName);
+    console.log('[Service Worker] Caching all: app shell and content');
+    await cache.addAll(contentToCache);
+  })());
 });
-
-// fetch cached data
-caches.match('/data.json').then(function(response) {
-  if (!response) throw Error("No data");
-  return response.json();
-}).then(function(data) {
-  // don't overwrite newer network data
-  if (!networkDataReceived) {
-    updatePage(data);
-  }
-}).catch(function() {
-  // we didn't get cached data, the network is our last hope:
-  return networkUpdate;
-}).catch(showErrorMessage).then(stopSpinner());
-
-// Cache resources
-self.addEventListener('install', function (e) {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      console.log('installing cache : ' + CACHE_NAME)
-      return cache.addAll(URLS)
-    })
-  )
-})
-
