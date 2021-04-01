@@ -23,6 +23,14 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
+    <style type="text/css">
+        .form-check-input{
+            margin-left: 19px;
+        }
+        .form-check-label{
+            margin-left: 40px;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -61,6 +69,75 @@
     </header>
     <section class="page-section portfolio " id="portfolio ">
         <h1>Health Resources</h1>
+        <br>
+        <h2>Health Questionnaire</h2>
+        <form name="healthForm" method="post">
+            <p>1. Have you been coughing?</p>
+            <input class="form-check-input" type="radio" name="cough" id="cough">
+            <label class="form-check-label" for="yes">Yes</label>
+            <br>
+            <input class="form-check-input" type="radio" name="cough" id="cough">
+            <label class="form-check-label" for="no">No</label>
+            <br><br>
+            <p>2. Have you had trouble breathing?</p>
+            <input class="form-check-input" type="radio" name="breathe" id="breathe">
+            <label class="form-check-label" for="yes">Yes</label>
+            <br>
+            <input class="form-check-input" type="radio" name="breathe" id="breathe">
+            <label class="form-check-label" for="no">No</label>
+            <br><br>
+            <p>3. Does your teeth hurt?</p>
+            <input class="form-check-input" type="radio" name="teeth" id="teeth">
+            <label class="form-check-label" for="yes">Yes</label>
+            <br>
+            <input class="form-check-input" type="radio" name="teeth" id="teeth">
+            <label class="form-check-label" for="no">No</label>
+            <br><br>
+            <p>4. What is your gender?</p>
+            <input class="form-check-input" type="radio" name="gender" id="gender">
+            <label class="form-check-label" for="male">Male</label>
+            <br>
+            <input class="form-check-input" type="radio" name="gender" id="gender">
+            <label class="form-check-label" for="female">Female</label>
+            <br>
+            <input class="form-check-input" type="radio" name="gender" id="gender">
+            <label class="form-check-label" for="other">Prefer not to specify</label>
+            <br><br>
+            <p>5. Are you having vaginal discomfort?</p>
+            <input class="form-check-input" type="radio" name="private" id="private">
+            <label class="form-check-label" for="yes">Yes</label>
+            <br>
+            <input class="form-check-input" type="radio" name="private" id="private">
+            <label class="form-check-label" for="no">No</label>
+            <br><br>
+            <p>6. Does it feel as though you broke, sprained, or twisted a body part?</p>
+            <input class="form-check-input" type="radio" name="body" id="body">
+            <label class="form-check-label" for="yes">Yes</label>
+            <br>
+            <input class="form-check-input" type="radio" name="body" id="body">
+            <label class="form-check-label" for="no">No</label>
+            <br><br>
+            <p>7. Have you had unprotected sex and/or have pregnancy symptoms?</p>
+            <input class="form-check-input" type="radio" name="pregnancy" id="pregnancy">
+            <label class="form-check-label" for="yes">Yes</label>
+            <br>
+            <input class="form-check-input" type="radio" name="pregnancy" id="pregnancy">
+            <label class="form-check-label" for="no">No</label>
+            <br><br>
+            <p>8. Which healthcare provider do you use?</p>
+            <input class="form-check-input" type="radio" name="provider" id="provider">
+            <label class="form-check-label" for="MassHealth">MassHealth</label>
+            <br>
+            <input class="form-check-input" type="radio" name="provider" id="provider">
+            <label class="form-check-label" for="BlueCross">Blue Cross Blue Shield</label>
+            <br>
+            <input class="form-check-input" type="radio" name="provider" id="provider">
+            <label class="form-check-label" for="Tufts">Tufts Health Plan</label>
+            <br>
+            <input class="form-check-input" type="radio" name="provider" id="provider">
+            <label class="form-check-label" for="other">Other</label>
+            <br><br>
+        </form>
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
