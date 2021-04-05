@@ -9,10 +9,9 @@ self.addEventListener('activate', (event) => {
       caches.keys().then((cacheNames) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
-            caches.keys().then(function(names) {
-              for (let name of names)
-                  caches.delete(name);
-          });
+            if (CACHE_NAME !== cacheName) {
+              return caches.delete(cacheName);
+            }
           })
         );
       })
@@ -26,7 +25,7 @@ self.addEventListener('fetch', (fetchEvent) => {
         fetch(fetchEvent.request).then(res => {
             const cacheRes = res.clone();
             caches.open(CACHE_NAME)
-              .then(cache.put(fetchEvent.request, cacheRes));
+              .then(cache => cache.put(fetchEvent.request, cacheRes));
             return res;
         }).catch(() => caches.match(fetchEvent.request).then(res => res))
     );
