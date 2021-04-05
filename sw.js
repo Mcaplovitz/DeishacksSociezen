@@ -1,84 +1,50 @@
-STATIC_FILES = [
-  '/Mouthful/index.html',
-  '/Mouthful/donations.html',
-  '/Mouthful/map.html',
-  '/Mouthful/newsfeed.html'
-]
+const cacheArr = ['/'];
+const CACHE_NAME = 'cache-v10';
+self.addEventListener('install', (event) => {
+    console.log('worker is installed');
+    // event.waitUntil(
+    //     caches.open(CACHE_NAME).then((cache) => {
+    //       console.log("Opened cache");
+    //       cache.addAll(cacheArr).then(() => self.skipWaiting());
+    //     })
+    // );
+});
 
-self.addEventListener('install', event => {
-  console.log('Service Worker install', event);
+self.addEventListener("activate", (event) => {
+    event.waitUntil(
+      caches.keys().then((cacheNames) => {
+        return Promise.all(
+          cacheNames.map((cacheName) => {
+            if (CACHE_NAME !== cacheName) {
+              return caches.delete(cacheName);
+            }
+          })
+        );
+      })
+    );
+  });
 
-  event.waitUntil((async () => {
-    const cache = await caches.open('static_files')
+//   self.addEventListener('fetch', (event) => {
+//     event.respondWith(
+//       caches.match(event.request)
+//         .then((response) => {
+//           // Cache hit - return response
+//           if (response) {
+//             return response;
+//           }
+//           return fetch(event.request).catch(() => caches.match(event.request));
+//         }
+//       )
+//     );
+//   });
 
-    return cache.addAll(STATIC_FILES)
-  })())
-})
-
-self.addEventListener('activate', event => {
-  console.log('Service Worker activated', event);
-
-  event.waitUntil((async () => {
-    return event.waitUntil(self.clients.claim());
-  })())
-})
-
-self.addEventListener('fetch', (event) => {
-  /**
-   * Cache Strategy Cache only
-   */
-  if (arrayIncludes(event.request.url, STATIC_FILES) === true) {
-    event.respondWith(caches.match(event.request))
-
-    return
-  }
-
-  /**
-   * Cache Strategy Network first, Cache fallback
-   */
-  if (event.request.headers.get('accept').includes('application/json')) {
-    event.respondWith((async () => {
-      try {
-        const response = await fetch(event.request)
-        const cache = await caches.open('dynamic_files')
-
-        cache.put(event.request.url, response.clone())
-        console.log('Return from fetch %s', event.request.url)
-
-        return response
-
-      } catch (error) {
-        const cached = await caches.match(event.request)
-
-        if (cached) {
-          console.log('Return from cache %s', event.request.url)
-          return cached
-        }
-
-        throw error
-      }
-    })())
-
-    return
-  }
-
-  /**
-   * Cache Strategy Cache first, Network fallback
-   */
-  if (event.request.method === 'GET') {
-    // fetch dynamic files the first time and return the second time from the cache
-    event.respondWith((async () => {
-      const response = await caches.match(event.request)
-
-      if (response) return response;
-
-      console.log('Dynamic Caching: %s', event.request.url)
-      const result = await fetch(event.request)
-      const cache = await caches.open('dynamic_files')
-
-      cache.put(event.request.url, result.clone())
-
-      return result
-    })())
-  }
-})
+self.addEventListener("fetch", (fetchEvent) => {
+    fetchEvent.respondWith(
+        fetch(fetchEvent.request).then(res => {
+            const cacheRes = res.clone();
+            caches.open(CACHE_NAME)
+              .then(cache => cache.put(fetchEvent.request, cacheRes));
+            return res;
+        }).catch(() => caches.match(fetchEvent.request).then(res => res))
+    );
+  });
