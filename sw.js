@@ -4,14 +4,15 @@ self.addEventListener('install', (event) => {
     console.log('worker is installed');
 });
 
-self.addEventListener("activate", (event) => {
+self.addEventListener('activate', (event) => {
     event.waitUntil(
       caches.keys().then((cacheNames) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
-            if (CACHE_NAME !== cacheName) {
-              return caches.delete(cacheName);
-            }
+            caches.keys().then(function(names) {
+              for (let name of names)
+                  caches.delete(name);
+          });
           })
         );
       })
@@ -20,7 +21,7 @@ self.addEventListener("activate", (event) => {
 
 
 
-self.addEventListener("fetch", (fetchEvent) => {
+self.addEventListener('fetch', (fetchEvent) => {
     fetchEvent.respondWith(
         fetch(fetchEvent.request).then(res => {
             const cacheRes = res.clone();
