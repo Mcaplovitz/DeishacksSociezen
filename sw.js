@@ -21,6 +21,9 @@ self.addEventListener('activate', (event) => {
 
 
 self.addEventListener('fetch', (fetchEvent) => {
+  if(!(fetchEvent.request.url.indexOf('http') === 0)){
+    //skip request
+ }
     fetchEvent.respondWith(
         fetch(fetchEvent.request).then(res => {
             const cacheRes = res.clone();
