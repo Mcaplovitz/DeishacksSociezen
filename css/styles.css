@@ -10386,3 +10386,17 @@ form .row:first-child .floating-label-form-group {
 .copyright {
     background-color: #1a252f;
 }
+#HASH {
+    display: flex;
+    justify-content: space-between;
+}
+#LEFT{
+    position: absolute;
+    right: 2%;
+}
+#RIGHT{
+    position: absolute;
+    left: 2%;
+}
+
+.mat-card{ position: relative }
