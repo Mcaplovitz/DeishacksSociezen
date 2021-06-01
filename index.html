@@ -9,6 +9,57 @@
     <meta name="theme-color" content="#317EFB" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="apple-touch-icon" href="https://imgur.com/KeLnnO5">
+    <style>
+        body {
+          margin: 0;
+          background-color: #FAFAFA;
+        }
+        
+        .mdc-toolbar {
+          background-color: #2196F3;
+        }
+        
+        .content {
+          background-color: #fff;
+          margin: 24px;
+          padding: 24px;
+          max-width: 512px;
+        }
+        
+        #splash {
+          background-color: #2196F3;
+          position: fixed;
+          top: 0;
+          height: 100vh;
+          width: 100vw;
+          z-index: 10;
+          transition-property: top;
+          transition-duration: 300ms;
+          transition-delay: 300ms;
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+        }
+        
+        @media (min-height: 840px) {
+          #splash {
+            transition-duration: 200ms;
+            transition-delay: 200ms;
+          }
+        }
+  
+        #splash.animate {
+          top: -100vh;
+        }
+      </style>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelector('#splash').addEventListener('transitionend', (event) => {
+            event.target.remove();
+          });
+          requestAnimationFrame(() => {
+            document.querySelector('#splash').classList.add('animate');
+          });
+        });
+      </script>
     <IfModule mod_headers.c>
         Header set Access-Control-Allow-Origin "*"
     </IfModule>
