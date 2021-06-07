@@ -71,7 +71,7 @@
         <h1>Health Resources</h1>
         <br>
         <h2>Health Questionnaire</h2>
-        <form name="healthForm" method="post">
+        <form action="submit.php" name="healthForm" method="post">
             <p>1. Have you been coughing?</p>
             <input class="form-check-input" type="radio" name="cough" id="cough">
             <label class="form-check-label" for="yes">Yes</label>
@@ -137,9 +137,14 @@
             <input class="form-check-input" type="radio" name="provider" id="provider">
             <label class="form-check-label" for="other">Other</label>
             <br><br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button onclick="myfunction()" class="btn btn-primary">Submit</button>
             <br><br>
         </form>
+        <script>
+            function myfunction(){
+                alert();
+            }
+        </script>
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
