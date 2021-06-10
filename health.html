@@ -154,17 +154,17 @@
                 for (const entry of data) {
                     output = output + entry[0] + "=" + entry[1] + "\r";
                 };
-                log.innerText = output;
+                if (output == "cough=yesCough\rbreathe=yesBreathe\rteeth=noTeeth\rgender=femaleGender\rprivate=yesPrivate\rbody=noBody\rpregnancy=noPregnancy\rprovider=blueProvider\r"){
+                    log.innerText = "Boston Health Care for Women";
+                }
+                else{
+                    log.innerText = output;
+                }
                 event.preventDefault();
             }, false);
-            if (output.split("=").length - 1 == 8){
-                if (output == "cough=yesCough\nbreathe=yesBreathe\nteeth=noTeeth\ngender=femaleGender\nprivate=yesPrivate\nbody=noBody\npregnancy=noPregnancy\nprovider=blueProvider"){
-                    console.log("Boston Health Care for Women")
-                }
-            }
-            else{
-                console.log("Not completely filled out")
-            }
+            // if (output.split("=").length - 1 == 8){
+
+            // }
         </script>
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
