@@ -73,78 +73,89 @@
         <h2>Health Questionnaire</h2>
         <form name="healthForm" method="post">
             <p>1. Have you been coughing?</p>
-            <input class="form-check-input" type="radio" name="cough" id="cough">
+            <input class="form-check-input" type="radio" name="cough" id="cough" value="yesCough">
             <label class="form-check-label" for="yes">Yes</label>
             <br>
-            <input class="form-check-input" type="radio" name="cough" id="cough">
+            <input class="form-check-input" type="radio" name="cough" id="cough" value="noCough">
             <label class="form-check-label" for="no">No</label>
             <br><br>
             <p>2. Have you had trouble breathing?</p>
-            <input class="form-check-input" type="radio" name="breathe" id="breathe">
+            <input class="form-check-input" type="radio" name="breathe" id="breathe" value="yesBreathe">
             <label class="form-check-label" for="yes">Yes</label>
             <br>
-            <input class="form-check-input" type="radio" name="breathe" id="breathe">
+            <input class="form-check-input" type="radio" name="breathe" id="breathe" value="noBreathe">
             <label class="form-check-label" for="no">No</label>
             <br><br>
             <p>3. Does your teeth hurt?</p>
-            <input class="form-check-input" type="radio" name="teeth" id="teeth">
+            <input class="form-check-input" type="radio" name="teeth" id="teeth"  value="yesTeeth">
             <label class="form-check-label" for="yes">Yes</label>
             <br>
-            <input class="form-check-input" type="radio" name="teeth" id="teeth">
+            <input class="form-check-input" type="radio" name="teeth" id="teeth"  value="noTeeth">
             <label class="form-check-label" for="no">No</label>
             <br><br>
             <p>4. What is your gender?</p>
-            <input class="form-check-input" type="radio" name="gender" id="gender">
+            <input class="form-check-input" type="radio" name="gender" id="gender"  value="maleGender">
             <label class="form-check-label" for="male">Male</label>
             <br>
-            <input class="form-check-input" type="radio" name="gender" id="gender">
+            <input class="form-check-input" type="radio" name="gender" id="gender"  value="femaleGender">
             <label class="form-check-label" for="female">Female</label>
             <br>
-            <input class="form-check-input" type="radio" name="gender" id="gender">
+            <input class="form-check-input" type="radio" name="gender" id="gender"  value="otherGender">
             <label class="form-check-label" for="other">Prefer not to specify</label>
             <br><br>
             <p>5. Are you having vaginal discomfort?</p>
-            <input class="form-check-input" type="radio" name="private" id="private">
+            <input class="form-check-input" type="radio" name="private" id="private"  value="yesPrivate">
             <label class="form-check-label" for="yes">Yes</label>
             <br>
-            <input class="form-check-input" type="radio" name="private" id="private">
+            <input class="form-check-input" type="radio" name="private" id="private"  value="noPrivate">
             <label class="form-check-label" for="no">No</label>
             <br><br>
             <p>6. Does it feel as though you broke, sprained, or twisted a body part?</p>
-            <input class="form-check-input" type="radio" name="body" id="body">
+            <input class="form-check-input" type="radio" name="body" id="body"  value="yesBody">
             <label class="form-check-label" for="yes">Yes</label>
             <br>
-            <input class="form-check-input" type="radio" name="body" id="body">
+            <input class="form-check-input" type="radio" name="body" id="body"  value="noBody">
             <label class="form-check-label" for="no">No</label>
             <br><br>
             <p>7. Have you had unprotected sex and/or have pregnancy symptoms?</p>
-            <input class="form-check-input" type="radio" name="pregnancy" id="pregnancy">
+            <input class="form-check-input" type="radio" name="pregnancy" id="pregnancy"  value="yesPregnancy">
             <label class="form-check-label" for="yes">Yes</label>
             <br>
-            <input class="form-check-input" type="radio" name="pregnancy" id="pregnancy">
+            <input class="form-check-input" type="radio" name="pregnancy" id="pregnancy"  value="noPregnancy">
             <label class="form-check-label" for="no">No</label>
             <br><br>
             <p>8. Which healthcare provider do you use?</p>
-            <input class="form-check-input" type="radio" name="provider" id="provider">
+            <input class="form-check-input" type="radio" name="provider" id="provider"  value="massProvider">
             <label class="form-check-label" for="MassHealth">MassHealth</label>
             <br>
-            <input class="form-check-input" type="radio" name="provider" id="provider">
+            <input class="form-check-input" type="radio" name="provider" id="provider" value="blueProvider">
             <label class="form-check-label" for="BlueCross">Blue Cross Blue Shield</label>
             <br>
-            <input class="form-check-input" type="radio" name="provider" id="provider">
+            <input class="form-check-input" type="radio" name="provider" id="provider"  value="tuftsProvider">
             <label class="form-check-label" for="Tufts">Tufts Health Plan</label>
             <br>
-            <input class="form-check-input" type="radio" name="provider" id="provider">
+            <input class="form-check-input" type="radio" name="provider" id="provider"  value="otherProvider">
             <label class="form-check-label" for="other">Other</label>
             <br><br>
-            <input type="button" onclick= "myfunction()" value = "Submit" class="btn btn-primary">
+            <button type = "submit" class="btn btn-primary">Submit</button>
+            <!-- <input type="button" value = "Submit" > -->
             <br><br>
         </form>
+        <pre id="log">
+        </pre>
         <script>
-            function myfunction(){
-                var cough = document.getElementById(cough).value;
-                document.write(cough + "</br>");
-            }
+            var form = document.querySelector("form");
+            var log = document.querySelector("#log");
+
+            form.addEventListener("submit", function(event) {
+                var data = new FormData(form);
+                var output = "";
+                for (const entry of data) {
+                    output = output + entry[0] + "=" + entry[1] + "\r";
+                };
+                log.innerText = output;
+                event.preventDefault();
+            }, false);
         </script>
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
