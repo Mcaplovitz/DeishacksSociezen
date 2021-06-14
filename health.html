@@ -144,6 +144,9 @@
         <pre id="log">
         </pre>
         <script>
+            let clinicMap = new Map([
+                ["cough=yesCough\rbreathe=yesBreathe\rteeth=noTeeth\rgender=femaleGender\rprivate=yesPrivate\rbody=noBody\rpregnancy=noPregnancy\rprovider=blueProvider\r", "Boston Health Care for Women"]
+            ])
             var form = document.querySelector("form");
             var log = document.querySelector("#log");
             form.addEventListener("submit", function(event) {
@@ -152,17 +155,14 @@
                 for (const entry of data) {
                     output = output + entry[0] + "=" + entry[1] + "\r";
                 };
-                if (output == "cough=yesCough\rbreathe=yesBreathe\rteeth=noTeeth\rgender=femaleGender\rprivate=yesPrivate\rbody=noBody\rpregnancy=noPregnancy\rprovider=blueProvider\r"){
-                    log.innerText = "Boston Health Care for Women";
+                if (clinicMap.has(output)){
+                    log.innerText = clinicMap.get(output);
                 }
                 else{
                     log.innerText = output;
                 }
                 event.preventDefault();
             }, false);
-            // if (output.split("=").length - 1 == 8){
-
-            // }
         </script>
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
